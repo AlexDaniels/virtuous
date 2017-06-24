@@ -1,5 +1,18 @@
 extends layout
 
+block head
+	link(rel='stylesheet' href='stylesheets/app.css')
+
 block content
-  h1= title
-  p Welcome to #{title}
+	div(class='container-fluid')
+		div(class='row')
+			div(id='app')
+
+	script(type="text/javascript" async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBa3kbEDzSadjVZeAnYq7lGR8zCgkQKGHo&callback=mapReady")
+	script(type='text/javascript' src='javascripts/maptemp.js')
+	script(type='text/babel' src='javascripts/react/map.js')
+	script(type='text/babel' src='javascripts/react/callForHelp.js')
+	script(type='text/babel' src='javascripts/react/activity.js')
+	script(type='text/babel' src='javascripts/react/notifications.js')
+	script(type='text/babel' src='javascripts/react/nav.js')
+	script(type='text/babel' src="javascripts/react/app.js")
