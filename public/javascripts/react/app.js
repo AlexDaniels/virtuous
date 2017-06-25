@@ -1,7 +1,7 @@
 class App extends React.Component {
 	constructor(props) {
 		super(props)
-		this.state = {'page':'map'};
+		this.state = {'page':'activity'};
 	}
 	navClicked(e) {
 		let type = e.target.id;

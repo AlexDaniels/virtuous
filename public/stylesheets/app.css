@@ -5,80 +5,100 @@ body {
   background-color: black;
 }
 
-.content {
-	height: 85vh;
-	background-color: white;
+.container-fluid {
+	padding:0px;
 }
 
+/*APP*/
 
-#nav {
-	position: fixed;
-	top: 0;
-	background-color: black;
-	height: 10vh;
-	color: white;
-}
-#nav * {
-	height: 100%;
-	width: height;
-	position: relative;
-}
-.btn-circle {
- 	border-radius: 50%;
-}
-.btn-nav {
- 	background-color: white;
- 	color: white;
-}
-.btn-nav:hover {
-	font-size: 200%;
-	color: white;
-}
+	.content {
+		height: 85vh;
+		background-color: white;
+	}
 
+/*NAV*/
 
-.title {
-	font-size: 200%;
-	padding-top: 15px
-}
-.logout {
-	padding-top: 20px;	
-}
+	#nav {
+		position: fixed;
+		top: 0;
+		background-color: black;
+		height: 10vh;
+		color: white;
+	}
+	#nav * {
+		height: 100%;
+		width: height;
+		position: relative;
+	}
+	.btn-circle {
+	 	border-radius: 50%;
+	}
+	.btn-nav {
+	 	background-color: white;
+	 	color: white;
+	}
+	.btn-nav:hover {
+		font-size: 200%;
+		color: white;
+	}
+	.logout {
+		padding-top: 20px;	
+	}
 
-.glyphicon {
-	font-size: 200%;
-	color: black;
-}
-.fa {
-	font-size: 200%;
-	color: black;
-}
-.glyphicon:hover {
-	font-size: 250%;
-	color: black;
-}
-.fa:hover {
-	font-size: 250%;
-	color: black;
-}
+	.glyphicon {
+		font-size: 200%;
+		color: black;
+	}
+	.fa {
+		font-size: 200%;
+		color: black;
+	}
+	.glyphicon:hover {
+		font-size: 250%;
+		color: black;
+	}
+	.fa:hover {
+		font-size: 250%;
+		color: black;
+	}
 
-textarea {
-	resize: none;
-}
+/*Call For Help*/
 
-.form-group {
-	padding: 2vh;
-}
+	textarea {
+		resize: none;
+	}
 
-#submit {
-	margin-top: 5vh;
-}
+	.form-group {
+		padding: 2vh;
+	}
 
-.btn-black {
-	color: white;
-	background-color: black
-}
-.btn-black:hover {
-	border-color: black;
-	color: black;
-	background-color: white;
-}
+	#submit {
+		margin-top: 5vh;
+	}
+
+	.btn-black {
+		color: white;
+		background-color: black
+	}
+	.btn-black:hover {
+		border-color: black;
+		color: black;
+		background-color: white;
+	}
+
+/*Activity*/
+
+	#list {
+		background-color: black;
+		height: 100%;
+		overflow-y: scroll;
+	}
+	#details {
+		background-color: white;
+		height: 100%;
+	}
+	.activity {
+		height: 15vh;
+		background-color: white;
+	}
+
