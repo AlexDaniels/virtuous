@@ -1,51 +1,51 @@
 class ActivityUI extends React.Component {
 	constructor(props) {
 		super(props)
-		this.activities = [ {title:'Title',description:'description', id:'12390'},{title:'Title',description:'description', id:'12391'},
+		this.callsForHelp = [ {title:'Title',description:'description', id:'12390'},{title:'Title',description:'description', id:'12391'},
 							{title:'Title',description:'description', id:'12393'},{title:'Title',description:'description', id:'12392'},
 							{title:'Title',description:'description', id:'12394'},{title:'Title',description:'description', id:'12395'}];
-		this.currentActivity = this.activities[0];
+		this.currentCallForHelp = this.callsForHelp[0];
 	}
 	render() {
 		return (
 			<div className='col-md-12 content'>
 				<div className='col-md-4' id='list'>
-					<ActivityList activities={this.activities} />
+					<CallForHelpList callsForHelp={this.callsForHelp} />
 				</div>
 				<div className='col-md-8' id='details'>
-					<ActivityDetails currentActivity={this.currentActivity}/>
+					<CallForHelpDetails currentCallForHelp={this.currentCallForHelp}/>
 				</div>
 			</div>
 		)
 	}
 }
 
-class ActivityList extends React.Component {
+class CallForHelpList extends React.Component {
 	constructor(props) {
 		super(props)
-		this.activities = props.activities;
+		this.callsForHelp = props.callsForHelp;
 	}
-	eachActivity(results, i) {
+	eachCallForHelp(results, i) {
 		return (
-			<Activity key={i} title={results.title} description={results.description} />
+			<CallForHelpListItem key={i} title={results.title} description={results.description} />
 		)
 	}
 	render() {
 		return (
 				<div>
-					{this.activities.map(this.eachActivity)}
+					{this.callsForHelp.map(this.eachCallForHelp)}
 				</div>
 		)
 	}
 }
 
-class Activity extends React.Component {
+class CallForHelpListItem extends React.Component {
 	constructor(props) {
 		super(props)
 	}
 	render() {
 		return (
-			<div className='activity'>
+			<div className='call-list-item'>
 				<h3>{this.props.title}</h3>
 				<p>{this.props.description}</p>
 			</div>
@@ -53,10 +53,10 @@ class Activity extends React.Component {
 	}
 }
 
-class ActivityDetails extends React.Component {
+class CallForHelpDetails extends React.Component {
 	constructor(props) {
 		super(props)
-		this.currentActivity = props.currentActivity;
+		this.currentCallForHelp = props.currentCallForHelp;
 	}
 	render() {
 		return (
@@ -80,3 +80,4 @@ class HelpingUser extends React.Component {
 
 	}
 }
+

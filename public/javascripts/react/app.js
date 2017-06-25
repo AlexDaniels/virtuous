@@ -19,7 +19,7 @@ class App extends React.Component {
 		return (<div><Nav navigate={this.navClicked.bind(this)}/><MapUI /></div>)
 	}
 	renderNew() {
-		return (<div><Nav navigate={this.navClicked.bind(this)}/><CallForHelpUI /></div>)
+		return (<div><Nav navigate={this.navClicked.bind(this)}/><NewCallForHelpUI /></div>)
 	}
 	renderActivity() {
 		return (<div><Nav navigate={this.navClicked.bind(this)}/><ActivityUI /></div>)
