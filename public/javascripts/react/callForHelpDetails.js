@@ -2,7 +2,7 @@
 	constructor(props) {
 		super(props)
 		this.currentCallForHelp = props.currentCallForHelp;
-		this.state = {currentView:'chat'}; // Main : Chat : Options
+		this.state = {currentView:'chat'}; // Main : Chat : Options : finalize : delete
 	}
 	eachUser(results, i) {
 		return (<HelpingUser key={i} username={results.username} helpAccepted={results.helpAccepted} karma={results.karma}/>)
@@ -15,8 +15,12 @@
 			this.setState({currentView:'main'});
 		} else if (event.target.id === 'toChat') {
 			this.setState({currentView:'chat'})
-		} else if (event.target.id === 'toOptions') {
+		} else if (event.target.id === 'toOptions' || event.target.id === 'backToOptions') {
 			this.setState({currentView:'options'})
+		} else if (event.target.id === 'toDelete') {
+			this.setState({currentView:'delete'})
+		} else if (event.target.id === 'toFinalize') {
+			this.setState({currentView:'finalize'})
 		}
 	}
 	renderMain() {
@@ -44,7 +48,20 @@
 		)
 	}
 	renderOptions() {
-		return <div></div>
+		return (
+			<div>
+				<div id='top-half-details'>
+					<h1 className='col-md-6'>Title</h1>
+					<button id='backToMain' onClick={this.setView.bind(this)} className='btn btn-sm glyphicon glyphicon-chevron-left'></button>
+					<button id='toFinalize' className='col-md-6'>Finalize</button>
+					<button id='toOptions' className='col-md-6'>Delete</button>
+					<p>Revoke any user that was not helpful before finalizing</p>	
+				</div>
+				<div id='bottom-half-details'>
+					{this.currentCallForHelp.helpingUsers.map(this.eachUser)}
+				</div>
+			</div>
+		)
 	}
 	render() {
 		if (this.state.currentView === 'main') {
