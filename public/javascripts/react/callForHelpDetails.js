@@ -33,7 +33,6 @@
 		}
 	}
 	renderMain() {
-		console.log(this.state.currentCallForHelp.description)
 		return (
 			<div>
 				<div id='top-half-details'>

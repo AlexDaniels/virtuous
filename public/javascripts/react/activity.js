@@ -10,7 +10,6 @@ class ActivityUI extends React.Component {
 		this.setState({currentCallForHelp:newCallForHelp})
 	}
 	render() {
-		console.log(this.state.currentCallForHelp.description)
 		return (
 			<div className='col-md-12 content'>
 				<div className='col-md-4' id='list'>
