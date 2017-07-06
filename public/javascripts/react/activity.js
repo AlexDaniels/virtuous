@@ -1,9 +1,7 @@
 class ActivityUI extends React.Component {
 	constructor(props) {
 		super(props)
-		this.callsForHelp = [ {title:'Title',description:'description', id:'12390'},{title:'Title',description:'description', id:'12391'},
-							{title:'Title',description:'description', id:'12393'},{title:'Title',description:'description', id:'12392'},
-							{title:'Title',description:'description', id:'12394'},{title:'Title',description:'description', id:'12395'}];
+		this.callsForHelp = callsForHelpData
 		this.currentCallForHelp = this.callsForHelp[0];
 	}
 	render() {
@@ -20,64 +18,110 @@ class ActivityUI extends React.Component {
 	}
 }
 
-class CallForHelpList extends React.Component {
-	constructor(props) {
-		super(props)
-		this.callsForHelp = props.callsForHelp;
-	}
-	eachCallForHelp(results, i) {
-		return (
-			<CallForHelpListItem key={i} title={results.title} description={results.description} />
-		)
-	}
-	render() {
-		return (
-				<div>
-					{this.callsForHelp.map(this.eachCallForHelp)}
-				</div>
-		)
-	}
-}
 
-class CallForHelpListItem extends React.Component {
-	constructor(props) {
-		super(props)
-	}
-	render() {
-		return (
-			<div className='call-list-item'>
-				<h3>{this.props.title}</h3>
-				<p>{this.props.description}</p>
-			</div>
-		)
-	}
-}
+//---------------Fake Data----------------------
 
-class CallForHelpDetails extends React.Component {
-	constructor(props) {
-		super(props)
-		this.currentCallForHelp = props.currentCallForHelp;
+var callsForHelpData = [
+	{
+		id: '12345',
+		title: 'Title',
+		description: 'Description fdsa fds aafsdfafsa fdsa fdasdfs asdfa asdfs asdadsaf afdsa Description fdsa fds aafsdfafsa fdsa fdasdfs asdfa asdfs asdadsaf afdsa Description fdsa fds aafsdfafsa fdsa fdasdfs asdfa asdfs asdadsaf afdsa Description fdsa fds aafsdfafsa fdsa fdasdfs asdfa asdfs asdadsaf afdsa Description fdsa fds aafsdfafsa fdsa fdasdfs asdfa asdfs asdadsaf afdsa ',
+		time: 'ASAP',
+		expiryDate: '4/5/6',
+		helpingUsers: [
+			{username:'Alex111',helpAccepted:'true', karma:3},
+			{username:'Alex2',helpAccepted:'false', karma:1},
+			{username:'Alex3',helpAccepted:'false', karma:2}
+		],
+		messages: [
+			{username:'Alex',timestamp:'4/5/6:12:32',content:'This is the message'},
+			{username:'Alex2',timestamp:'4/5/6:12:32',content:'This is the message'},
+			{username:'Alex',timestamp:'4/5/6:12:32',content:'This is the message'}
+		]
+	},
+	{
+		id: '12346',
+		title: 'Title',
+		description: 'Description',
+		time: 'ASAP',
+		expiryDate: '4/5/6',
+		helpingUsers: [
+			{username:'Alex',helpAccepted:'true',karma:2},
+			{username:'Alex2',helpAccepted:'false',karma:2},
+			{username:'Alex3',helpAccepted:'false',karma:2}
+		],
+		messages: [
+			{username:'Alex',timestamp:'4/5/6:12:32',content:'This is the message'},
+			{username:'Alex2',timestamp:'4/5/6:12:32',content:'This is the message'},
+			{username:'Alex',timestamp:'4/5/6:12:32',content:'This is the message'}
+		]
+	},
+	{
+		id: '12347',
+		title: 'Title',
+		description: 'Description',
+		time: 'ASAP',
+		expiryDate: '4/5/6',
+		helpingUsers: [
+			{username:'Alex',helpAccepted:'true',karma:2},
+			{username:'Alex2',helpAccepted:'false',karma:2},
+			{username:'Alex3',helpAccepted:'false',karma:2}
+		],
+		messages: [
+			{username:'Alex',timestamp:'4/5/6:12:32',content:'This is the message'},
+			{username:'Alex2',timestamp:'4/5/6:12:32',content:'This is the message'},
+			{username:'Alex',timestamp:'4/5/6:12:32',content:'This is the message'}
+		]
+	},
+	{
+		id: '12347',
+		title: 'Title',
+		description: 'Description',
+		time: 'ASAP',
+		expiryDate: '4/5/6',
+		helpingUsers: [
+			{username:'Alex',helpAccepted:'true',karma:2},
+			{username:'Alex2',helpAccepted:'false',karma:2},
+			{username:'Alex3',helpAccepted:'false',karma:2}
+		],
+		messages: [
+			{username:'Alex',timestamp:'4/5/6:12:32',content:'This is the message'},
+			{username:'Alex2',timestamp:'4/5/6:12:32',content:'This is the message'},
+			{username:'Alex',timestamp:'4/5/6:12:32',content:'This is the message'}
+		]
+	},
+	{
+		id: '12347',
+		title: 'Title',
+		description: 'Description',
+		time: 'ASAP',
+		expiryDate: '4/5/6',
+		helpingUsers: [
+			{username:'Alex',helpAccepted:'true',karma:2},
+			{username:'Alex2',helpAccepted:'false',karma:2},
+			{username:'Alex3',helpAccepted:'false',karma:2}
+		],
+		messages: [
+			{username:'Alex',timestamp:'4/5/6:12:32',content:'This is the message'},
+			{username:'Alex2',timestamp:'4/5/6:12:32',content:'This is the message'},
+			{username:'Alex',timestamp:'4/5/6:12:32',content:'This is the message'}
+		]
+	},
+	{
+		id: '12347',
+		title: 'Title',
+		description: 'Description',
+		time: 'ASAP',
+		expiryDate: '4/5/6',
+		helpingUsers: [
+			{username:'Alex',helpAccepted:'true',karma:2},
+			{username:'Alex2',helpAccepted:'false',karma:2},
+			{username:'Alex3',helpAccepted:'false',karma:2}
+		],
+		messages: [
+			{username:'Alex',timestamp:'4/5/6:12:32',content:'This is the message'},
+			{username:'Alex2',timestamp:'4/5/6:12:32',content:'This is the message'},
+			{username:'Alex',timestamp:'4/5/6:12:32',content:'This is the message'}
+		]
 	}
-	render() {
-		return (
-			<div>
-				<h1>Title</h1>
-				<p>Description</p>
-				<p>Time</p>
-				<div>
-
-				</div>
-			</div>
-		)
-	}
-}
-
-class HelpingUser extends React.Component {
-	constructor(props) {
-		super(props)
-	}
-	render() {
-
-	}
-}
-
+]

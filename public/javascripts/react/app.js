@@ -24,9 +24,6 @@ class App extends React.Component {
 	renderActivity() {
 		return (<div><Nav navigate={this.navClicked.bind(this)}/><ActivityUI /></div>)
 	}
-	renderNotification() {
-		return (<div><Nav navigate={this.navClicked.bind(this)}/><NotificationsUI /></div>)
-	}
 	render() {
 		if (this.state.page === 'map') {
 			return this.renderMap();
@@ -34,8 +31,6 @@ class App extends React.Component {
 			return this.renderNew()
 		} else if (this.state.page === 'activity') {
 			return this.renderActivity()
-		} else if (this.state.page === 'notifications') {
-			return this.renderNotification();
 		}
 	}
 }
