@@ -1,17 +1,23 @@
 class ActivityUI extends React.Component {
 	constructor(props) {
 		super(props)
-		this.callsForHelp = callsForHelpData
-		this.currentCallForHelp = this.callsForHelp[0];
+		this.callsForHelp = callsForHelpData;
+		this.state = {};
+		this.state.currentCallForHelp = this.callsForHelp[0];
+	}
+	setCallForHelp(event) {
+		let newCallForHelp = $.grep(this.callsForHelp, function(e){ return e.id == event.currentTarget.id; })[0];
+		this.setState({currentCallForHelp:newCallForHelp})
 	}
 	render() {
+		console.log(this.state.currentCallForHelp.description)
 		return (
 			<div className='col-md-12 content'>
 				<div className='col-md-4' id='list'>
-					<CallForHelpList callsForHelp={this.callsForHelp} />
+					<CallForHelpList callsForHelp={this.callsForHelp} setCallForHelp={this.setCallForHelp.bind(this)} />
 				</div>
 				<div className='col-md-8' id='details'>
-					<CallForHelpDetails currentCallForHelp={this.currentCallForHelp}/>
+					<CallForHelpDetails currentCallForHelp={this.state.currentCallForHelp}/>
 				</div>
 			</div>
 		)

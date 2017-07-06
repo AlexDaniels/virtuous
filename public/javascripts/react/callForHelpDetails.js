@@ -1,8 +1,10 @@
 	class CallForHelpDetails extends React.Component {
 	constructor(props) {
 		super(props)
-		this.currentCallForHelp = props.currentCallForHelp;
-		this.state = {currentView:'main'}; // Main : Chat : Options : finalize : delete
+		this.state = {currentView:'main', currentCallForHelp:props.currentCallForHelp}; // Main : Chat : Options : finalize : delete
+	}
+	componentWillReceiveProps(e) {
+		this.setState({currentCallForHelp:e.currentCallForHelp})
 	}
 	eachUser(results, i) {
 		return (<HelpingUser key={i} username={results.username} helpAccepted={results.helpAccepted} karma={results.karma}/>)
@@ -31,17 +33,18 @@
 		}
 	}
 	renderMain() {
+		console.log(this.state.currentCallForHelp.description)
 		return (
 			<div>
 				<div id='top-half-details'>
 					<h1 className='col-md-12'>Title</h1>
-					<p className='col-md-12'>{this.currentCallForHelp.description}</p>
-					<p className='text-center col-md-12'>I need help: {this.currentCallForHelp.time}</p>
+					<p className='col-md-12'>{this.state.currentCallForHelp.description}</p>
+					<p className='text-center col-md-12'>I need help: {this.state.currentCallForHelp.time}</p>
 					<button id='toChat' onClick={this.setView.bind(this)} className='btn col-md-3 col-md-offset-3 btn-black'>Chat</button>
 					<button id='toOptions' onClick={this.setView.bind(this)} className='btn col-md-3 col-md-offset-1 btn-black'>Options</button>
 				</div>
 				<div id='bottom-half-details'>
-					{this.currentCallForHelp.helpingUsers.map(this.eachUser)}
+					{this.state.currentCallForHelp.helpingUsers.map(this.eachUser)}
 				</div>
 			</div>
 		)
@@ -50,7 +53,7 @@
 		return (
 			<div>
 				<button id='backToMain' onClick={this.setView.bind(this)} className='btn btn-sm glyphicon glyphicon-chevron-left'></button>
-				{this.currentCallForHelp.messages.map(this.eachMessage)}
+				{this.state.currentCallForHelp.messages.map(this.eachMessage)}
 			</div>
 		)
 	}
@@ -65,7 +68,7 @@
 					<p>Revoke any user that was not helpful before finalizing</p>	
 				</div>
 				<div id='bottom-half-details'>
-					{this.currentCallForHelp.helpingUsers.map(this.eachUser)}
+					{this.state.currentCallForHelp.helpingUsers.map(this.eachUser)}
 				</div>
 			</div>
 		)
@@ -87,7 +90,7 @@
 				<button id='backToOptions' onClick={this.setView.bind(this)} className='btn btn-sm glyphicon glyphicon-chevron-left'></button>
 				<p className='col-md-12'>You are about to finalize your call for help</p>
 				<p>Did this person help you?</p>
-				{this.currentCallForHelp.helpingUsers.map(this.eachAcceptedUser)}
+				{this.state.currentCallForHelp.helpingUsers.map(this.eachAcceptedUser)}
 				<p>If not click back and click revoke before finalizing</p>
 				<button id='backToMain' onClick={this.setView.bind(this)} className='btn col-md-12'>Finalize</button>
 			</div>
@@ -95,7 +98,6 @@
 		)
 	}
 	render() {
-		console.log(this.state.currentView)
 		if (this.state.currentView === 'main') {
 			return this.renderMain();
 		} 

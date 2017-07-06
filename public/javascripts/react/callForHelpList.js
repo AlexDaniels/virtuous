@@ -5,13 +5,13 @@ class CallForHelpList extends React.Component {
 	}
 	eachCallForHelp(results, i) {
 		return (
-			<CallForHelpListItem key={i} title={results.title} description={results.description} />
+			<CallForHelpListItem id={results.id} key={i} title={results.title} description={results.description} setCallForHelp={this.props.setCallForHelp}/>
 		)
 	}
 	render() {
 		return (
 				<div>
-					{this.callsForHelp.map(this.eachCallForHelp)}
+					{this.callsForHelp.map(this.eachCallForHelp.bind(this))}
 				</div>
 		)
 	}
@@ -23,7 +23,7 @@ class CallForHelpListItem extends React.Component {
 	}
 	render() {
 		return (
-			<div className='call-list-item'>
+			<div id={this.props.id} className='call-list-item' onClick={this.props.setCallForHelp.bind(this)}>
 				<h3>{this.props.title}</h3>
 				<p>{this.props.description}</p>
 			</div>
