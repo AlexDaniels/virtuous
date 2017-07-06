@@ -114,13 +114,22 @@ body {
 	}
 
 
+/*Notifications*/
 
-
-
-
-	#notifications {
+		#notifications {
 		position: fixed;
 		top:12vh;
-		left: 70vw;
-		background-color: black
+		left: 68vw;
+		background-color: black;
+		color: white;
+		width: 15vw;
+		height: 25vh;
+		word-wrap: break-word;
+		overflow-y: scroll;
+		border-color: white;
+	}
+
+	.notifItem {
+		border-bottom: solid;
+		border-color: white;	
 	}

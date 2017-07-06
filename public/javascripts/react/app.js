@@ -1,7 +1,7 @@
 class App extends React.Component {
 	constructor(props) {
 		super(props)
-		this.state = {'page':'activity'};
+		this.state = {'page':'activity','notifications':false};
 	}
 	navClicked(e) {
 		let type = e.target.id;
@@ -12,17 +12,17 @@ class App extends React.Component {
 		} else if (type === 'actBTN') {
 			this.setState({page:'activity'})
 		} else if (type === 'notBTN') {
-			this.setState({page:'notifications'})
+			this.setState({notifications:!this.state.notifications});
 		}
 	}
 	renderMap() {
-		return (<div><Nav navigate={this.navClicked.bind(this)}/><MapUI /></div>)
+		return (<div><Nav navigate={this.navClicked.bind(this)}/><MapUI /><NotificationsUI visible={this.state.notifications}/></div>)
 	}
 	renderNew() {
-		return (<div><Nav navigate={this.navClicked.bind(this)}/><NewCallForHelpUI /></div>)
+		return (<div><Nav navigate={this.navClicked.bind(this)}/><NewCallForHelpUI /><NotificationsUI visible={this.state.notifications}/></div>)
 	}
 	renderActivity() {
-		return (<div><Nav navigate={this.navClicked.bind(this)}/><ActivityUI /></div>)
+		return (<div><Nav navigate={this.navClicked.bind(this)}/><ActivityUI /><NotificationsUI visible={this.state.notifications}/></div>)
 	}
 	render() {
 		if (this.state.page === 'map') {
