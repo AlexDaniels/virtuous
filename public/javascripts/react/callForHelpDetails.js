@@ -2,13 +2,20 @@
 	constructor(props) {
 		super(props)
 		this.currentCallForHelp = props.currentCallForHelp;
-		this.state = {currentView:'chat'}; // Main : Chat : Options : finalize : delete
+		this.state = {currentView:'main'}; // Main : Chat : Options : finalize : delete
 	}
 	eachUser(results, i) {
 		return (<HelpingUser key={i} username={results.username} helpAccepted={results.helpAccepted} karma={results.karma}/>)
 	} 
 	eachMessage(results,i) {
 		return (<ChatItem key={i} username={results.username} timestamp={results.timestamp} content={results.content} />)
+	}
+	eachAcceptedUser(results, i) {
+		if (results.helpAccepted === 'true') {
+			return (
+				<p key={i}>{results.username}</p>
+			)
+		}
 	}
 	setView(event) {
 		if (event.target.id === 'backToMain') {
@@ -53,8 +60,8 @@
 				<div id='top-half-details'>
 					<h1 className='col-md-6'>Title</h1>
 					<button id='backToMain' onClick={this.setView.bind(this)} className='btn btn-sm glyphicon glyphicon-chevron-left'></button>
-					<button id='toFinalize' className='col-md-6'>Finalize</button>
-					<button id='toOptions' className='col-md-6'>Delete</button>
+					<button id='toFinalize' onClick={this.setView.bind(this)} className='col-md-6'>Finalize</button>
+					<button id='toDelete' onClick={this.setView.bind(this)} className='col-md-6'>Delete</button>
 					<p>Revoke any user that was not helpful before finalizing</p>	
 				</div>
 				<div id='bottom-half-details'>
@@ -63,7 +70,32 @@
 			</div>
 		)
 	}
+	renderDelete() {
+		return (
+			<div>
+				<h1 className='col-md-6'>Title</h1>
+				<button id='backToOptions' onClick={this.setView.bind(this)} className='btn btn-sm glyphicon glyphicon-chevron-left'></button>
+				<p className='col-md-12'>Are you sure you want to delete this Call for Help?</p>
+				<button id='backToMain' onClick={this.setView.bind(this)} className='btn col-md-12'>Delete</button>
+			</div>
+		)
+	}
+	renderFinalized() {
+		return (
+			<div>
+				<h1 className='col-md-6'>Title</h1>
+				<button id='backToOptions' onClick={this.setView.bind(this)} className='btn btn-sm glyphicon glyphicon-chevron-left'></button>
+				<p className='col-md-12'>You are about to finalize your call for help</p>
+				<p>Did this person help you?</p>
+				{this.currentCallForHelp.helpingUsers.map(this.eachAcceptedUser)}
+				<p>If not click back and click revoke before finalizing</p>
+				<button id='backToMain' onClick={this.setView.bind(this)} className='btn col-md-12'>Finalize</button>
+			</div>
+
+		)
+	}
 	render() {
+		console.log(this.state.currentView)
 		if (this.state.currentView === 'main') {
 			return this.renderMain();
 		} 
@@ -73,6 +105,12 @@
 		else if (this.state.currentView === 'options') {
 			return this.renderOptions();
 		}
+		else if (this.state.currentView === 'delete') {
+			return this.renderDelete();
+		} 
+		else if (this.state.currentView === 'finalize') {
+			return this.renderFinalized();
+		} 
 	}
 }
 
