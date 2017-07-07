@@ -41,7 +41,7 @@ class NewCallForHelpUI extends React.Component {
 		return (
 			<div className='col-md-12 content'>
 				<h1>Your call for help has been sent out into the world</h1>
-				<button className='btn'>OK</button>
+				<button id='backToMap' onClick={this.props.navigate.bind(this)} className='btn'>OK</button>
 			</div>
 		)
 	}

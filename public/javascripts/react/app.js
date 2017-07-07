@@ -3,9 +3,9 @@ class App extends React.Component {
 		super(props)
 		this.state = {'page':'activity','notifications':false};
 	}
-	navClicked(e) {
+	navigate(e) {
 		let type = e.target.id;
-		if (type === 'mapBTN') {
+		if (type === 'mapBTN' || type === 'backToMap') {
 			this.setState({page:'map'})
 		} else if (type === 'newBTN') {
 			this.setState({page:'new'})
@@ -16,13 +16,13 @@ class App extends React.Component {
 		}
 	}
 	renderMap() {
-		return (<div><Nav navigate={this.navClicked.bind(this)}/><MapUI /><NotificationsUI visible={this.state.notifications}/></div>)
+		return (<div><Nav navigate={this.navigate.bind(this)}/><MapUI /><NotificationsUI visible={this.state.notifications}/></div>)
 	}
 	renderNew() {
-		return (<div><Nav navigate={this.navClicked.bind(this)}/><NewCallForHelpUI /><NotificationsUI visible={this.state.notifications}/></div>)
+		return (<div><Nav navigate={this.navigate.bind(this)}/><NewCallForHelpUI navigate={this.navigate.bind(this)}/><NotificationsUI visible={this.state.notifications}/></div>)
 	}
 	renderActivity() {
-		return (<div><Nav navigate={this.navClicked.bind(this)}/><ActivityUI /><NotificationsUI visible={this.state.notifications}/></div>)
+		return (<div><Nav navigate={this.navigate.bind(this)}/><ActivityUI /><NotificationsUI visible={this.state.notifications}/></div>)
 	}
 	render() {
 		if (this.state.page === 'map') {
