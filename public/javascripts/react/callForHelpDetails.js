@@ -39,6 +39,8 @@
 					<h1 className='col-md-12'>Title</h1>
 					<p className='col-md-12'>{this.state.currentCallForHelp.description}</p>
 					<p className='text-center col-md-12'>I need help: {this.state.currentCallForHelp.time}</p>
+				</div>
+				<div id='middle-details'>
 					<button id='toChat' onClick={this.setView.bind(this)} className='btn col-md-3 col-md-offset-3 btn-black'>Chat</button>
 					<button id='toOptions' onClick={this.setView.bind(this)} className='btn col-md-3 col-md-offset-1 btn-black'>Options</button>
 				</div>
@@ -64,6 +66,8 @@
 					<button id='backToMain' onClick={this.setView.bind(this)} className='btn btn-sm glyphicon glyphicon-chevron-left'></button>
 					<button id='toFinalize' onClick={this.setView.bind(this)} className='col-md-6'>Finalize</button>
 					<button id='toDelete' onClick={this.setView.bind(this)} className='col-md-6'>Delete</button>
+				</div>
+				<div id='middle-details'>
 					<p>Revoke any user that was not helpful before finalizing</p>	
 				</div>
 				<div id='bottom-half-details'>

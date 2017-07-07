@@ -36,6 +36,10 @@ var callsForHelpData = [
 		helpingUsers: [
 			{username:'Alex111',helpAccepted:'true', karma:3},
 			{username:'Alex2',helpAccepted:'false', karma:1},
+			{username:'Alex111',helpAccepted:'true', karma:3},
+			{username:'Alex2',helpAccepted:'false', karma:1},
+			{username:'Alex111',helpAccepted:'true', karma:3},
+			{username:'Alex2',helpAccepted:'false', karma:1},
 			{username:'Alex3',helpAccepted:'false', karma:2}
 		],
 		messages: [

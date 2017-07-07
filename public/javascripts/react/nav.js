@@ -5,7 +5,7 @@ class Nav extends React.Component {
 	}
 	render() {
 		return (
-			<div className='container visible-md visible-lg' id='nav'>
+			<div className='container-fluid visible-md visible-lg' id='nav'>
 				<div className='row'>
 					<img src='images/yy3.png' className='col-md-3 img-responsive'></img>
 					<button id='mapBTN' type='button' onClick={this.props.navigate} className='btn btn-nav col-md-1 btn-circle glyphicon glyphicon-globe'></button>

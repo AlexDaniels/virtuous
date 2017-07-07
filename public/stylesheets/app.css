@@ -106,6 +106,19 @@ body {
 		margin: 2vh;
 		color: white;
 	}
+	#top-half-details {
+		height: 35vh;
+	}
+	#bottom-half-details {
+		height: 40vh;
+		overflow-y: hidden
+		width: 100%;
+		overflow-y: scroll;
+		margin-top: 2vh;
+	}
+	#middle-details {
+		height: 5vh;
+	}
 	#top-half-details > *{
 		margin-top: 3vh;
 	}	
@@ -119,7 +132,7 @@ body {
 		#notifications {
 		position: fixed;
 		top:12vh;
-		left: 68vw;
+		left: 72vw;
 		background-color: black;
 		color: white;
 		width: 15vw;
