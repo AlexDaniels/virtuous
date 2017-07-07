@@ -1,11 +1,15 @@
 class NewCallForHelpUI extends React.Component {
 	constructor(props) {
 		super(props)
+		this.state = {page:'create'} //create : confirm
 	}
 	componentDidMount() {
 		datePickerSetup();
 	}
-	render() {
+	changeState() {
+		this.setState({page:'confirm'})
+	}
+	renderCreate() {
 		return (
 			<div className='col-md-12 content'>
 				<h1 className='col-md-offset-4'>Ask Someone For Help</h1>
@@ -27,10 +31,26 @@ class NewCallForHelpUI extends React.Component {
 							<label htmlFor="expire">Expiry Date</label>
 							<input type="text" className="form-control" id="expire" />
 						</div>
-						<button className='btn btn-black col-md-6' id='submit'>Submit</button>
+						<button onClick={this.changeState.bind(this)} className='btn btn-black col-md-6' id='submit'>Submit</button>
 					</div>
 				</div>
 			</div>
 		)
+	}
+	renderConfirmation() {
+		return (
+			<div className='col-md-12 content'>
+				<h1>Your call for help has been sent out into the world</h1>
+				<button className='btn'>OK</button>
+			</div>
+		)
+	}
+	render() {
+		if (this.state.page === 'create') {
+			return this.renderCreate();
+		} 
+		else if (this.state.page === 'confirm') {
+			return this.renderConfirmation();
+		}
 	}
 }
