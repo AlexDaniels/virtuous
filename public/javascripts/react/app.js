@@ -16,13 +16,13 @@ class App extends React.Component {
 		}
 	}
 	renderMap() {
-		return (<div><Nav navigate={this.navigate.bind(this)}/><MapUI /><NotificationsUI visible={this.state.notifications}/></div>)
+		return (<div><Nav navigate={this.navigate.bind(this)}/><MapUI /><NotificationsUI notifications={notifications} visible={this.state.notifications}/></div>)
 	}
 	renderNew() {
-		return (<div><Nav navigate={this.navigate.bind(this)}/><NewCallForHelpUI navigate={this.navigate.bind(this)}/><NotificationsUI visible={this.state.notifications}/></div>)
+		return (<div><Nav navigate={this.navigate.bind(this)}/><NewCallForHelpUI navigate={this.navigate.bind(this)}/><NotificationsUI notifications={notifications} visible={this.state.notifications}/></div>)
 	}
 	renderActivity() {
-		return (<div><Nav navigate={this.navigate.bind(this)}/><ActivityUI /><NotificationsUI visible={this.state.notifications}/></div>)
+		return (<div><Nav navigate={this.navigate.bind(this)}/><ActivityUI /><NotificationsUI notifications={notifications} visible={this.state.notifications}/></div>)
 	}
 	render() {
 		if (this.state.page === 'map') {
@@ -36,3 +36,25 @@ class App extends React.Component {
 }
 
 ReactDOM.render(<App/>,document.getElementById('app'))
+
+
+//Fake data
+
+let notifications = [
+	{
+		content:'Username has finalized your call for help!',
+		read:false
+	},
+	{
+		content:'Username has offered help!',
+		read:true
+	},
+	{
+		content:'Username has finalized your call for help!',
+		read:true
+	},
+	{
+		content:'Username has finalized your call for help!',
+		read:true
+	}
+]

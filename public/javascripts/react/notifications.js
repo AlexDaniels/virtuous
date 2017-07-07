@@ -7,26 +7,23 @@ class NotificationsUI extends React.Component {
 	componentWillReceiveProps(e) {
 		this.setState({visible:e.visible})
 	}
+	eachNotification(results, i) {
+		return (
+			<div key={i} className='notifItem'>
+				<p>{results.content}</p>
+			</div>
+		)
+	}
 	render() {
 		if (this.state.visible === false) {
 			return null;
 		} else {
 			return (
 				<div id='notifications'>
-					<div className='notifItem'>
-						<p>DMSKLADMSLAKDMSKLADMSKLAMDSKLAMDSKLAMDKLSAMDKLSAMDKL</p>
-					</div>
-					<div className='notifItem'>
-						<p>DMSKLADMSLAKDMSKLADMSKLAMDSKLAMDSKLAMDKLSAMDKLSAMDKL</p>
-					</div>
-					<div className='notifItem'>
-						<p>DMSKLADMSLAKDMSKLADMSKLAMDSKLAMDSKLAMDKLSAMDKLSAMDKLSADMSKLDMSAKLDM</p>
-					</div>
-					<div className='notifItem'>
-						<p>DMSKLADMSLAKDMSKLADMSKLAMDSKLAMDSKLAMDKLSAMDKLSAMDKLSADMSKLDMSAKL</p>
-					</div>
+					{this.props.notifications.map(this.eachNotification.bind(this))}
 				</div>
 			)
 		}
 	}
 }
+
