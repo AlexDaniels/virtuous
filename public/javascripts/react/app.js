@@ -15,6 +15,9 @@ class App extends React.Component {
 			this.setState({notifications:!this.state.notifications});
 		}
 	}
+	componentWillUpdate() {
+		//RefreshData based on the current page
+	}
 	renderMap() {
 		return (<div><Nav navigate={this.navigate.bind(this)}/><MapUI /><NotificationsUI notifications={notifications} visible={this.state.notifications}/></div>)
 	}
@@ -40,7 +43,7 @@ ReactDOM.render(<App/>,document.getElementById('app'))
 
 //Fake data
 
-let notifications = [
+var notifications = [
 	{
 		content:'Username has finalized your call for help!',
 		read:false

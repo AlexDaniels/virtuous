@@ -63,7 +63,7 @@ body {
 		color: black;
 	}
 
-/*Call For Help*/
+/*New Call For Help*/
 
 	textarea {
 		resize: none;
@@ -85,6 +85,9 @@ body {
 		border-color: black;
 		color: black;
 		background-color: white;
+	}
+	#submit {
+		margin-top: 3.25%;
 	}
 
 /*Activity*/
@@ -125,7 +128,23 @@ body {
 	#bottom-half-details > *{
 		margin-top: 3vh;
 	}
+	.listItem-title {
+		margin-top: 0%;
+	}
+	.chat-item {
+		background-color: black;
+		color: white;
+		margin-top: 2vh;
+	}
+	.top-options {
 
+	}
+	#btn-options  {
+		margin-top: 8vh;
+	}
+	#middle-details {
+		text-align: center;
+	}
 
 /*Notifications*/
 

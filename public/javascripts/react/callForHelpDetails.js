@@ -54,7 +54,7 @@ class CallForHelpDetails extends React.Component {
 	renderChat() {
 		return (
 			<div>
-				<button id='backToMain' onClick={this.setView.bind(this)} className='btn btn-sm glyphicon glyphicon-chevron-left'></button>
+				<button id='backToMain' onClick={this.setView.bind(this)} className='col-md-1 col-md-offset-11 btn-black glyphicon glyphicon-chevron-left'></button>
 				{this.state.currentCallForHelp.messages.map(this.eachMessage)}
 			</div>
 		)
@@ -62,11 +62,13 @@ class CallForHelpDetails extends React.Component {
 	renderOptions() {
 		return (
 			<div>
-				<div id='top-half-details'>
+				<div id='top-half-details' className='top-options'>
 					<h1 className='col-md-6'>Title</h1>
-					<button id='backToMain' onClick={this.setView.bind(this)} className='btn btn-sm glyphicon glyphicon-chevron-left'></button>
-					<button id='toFinalize' onClick={this.setView.bind(this)} className='col-md-6'>Finalize</button>
-					<button id='toDelete' onClick={this.setView.bind(this)} className='col-md-6'>Delete</button>
+					<button id='backToMain' onClick={this.setView.bind(this)} className='btn-black glyphicon glyphicon-chevron-left col-md-1 col-md-offset-5'></button>
+					<div id='btn-options' className='col-md-12'>
+						<button id='toFinalize' onClick={this.setView.bind(this)} className='col-md-4 col-md-offset-2 btn btn-black'>Finalize</button>
+						<button id='toDelete' onClick={this.setView.bind(this)} className='col-md-4 col-md-offset-1 btn btn-black'>Delete</button>
+					</div>
 				</div>
 				<div id='middle-details'>
 					<p>Revoke any user that was not helpful before finalizing</p>	
@@ -130,7 +132,7 @@ class ChatItem extends React.Component {
 	}
 	render() {
 		return (
-			<div>
+			<div className='chat-item col-md-12'>
 				<div className='col-md-2'>
 					{this.username}
 				</div>

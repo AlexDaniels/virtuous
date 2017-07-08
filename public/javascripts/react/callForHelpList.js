@@ -24,8 +24,8 @@ class CallForHelpListItem extends React.Component {
 	render() {
 		return (
 			<div id={this.props.id} className='call-list-item' onClick={this.props.setCallForHelp.bind(this)}>
-				<h3>{this.props.title}</h3>
-				<p>{this.props.description}</p>
+				<h3 className='listItem-title'>{this.props.title}</h3>
+				<p className='listItem-description'>{this.props.description}</p>
 			</div>
 		)
 	}

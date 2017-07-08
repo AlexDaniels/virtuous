@@ -7,7 +7,7 @@ class ActivityUI extends React.Component {
 	}
 	setCallForHelp(event) {
 		let newCallForHelp = $.grep(this.callsForHelp, function(e){ return e.id == event.currentTarget.id; })[0];
-		this.setState({currentCallForHelp:newCallForHelp})
+		this.setState({currentCallForHelp:newCallForHelp});
 	}
 	render() {
 		return (
@@ -30,7 +30,7 @@ var callsForHelpData = [
 	{
 		id: '12345',
 		title: 'Title',
-		description: 'Description fdsa fds aafsdfafsa fdsa fdasdfs asdfa asdfs asdadsaf afdsa Description fdsa fds aafsdfafsa fdsa fdasdfs asdfa asdfs asdadsaf afdsa Description fdsa fds aafsdfafsa fdsa fdasdfs asdfa asdfs asdadsaf afdsa Description fdsa fds aafsdfafsa fdsa fdasdfs asdfa asdfs asdadsaf afdsa Description fdsa fds aafsdfafsa fdsa fdasdfs asdfa asdfs asdadsaf afdsa ',
+		description: 'Description fdsa fds aafsdfafsa fdsa fdasdfs asdfa asdfs asdadsaf afdsa Description fdsa fds aafsdfafsa fdsa fdasdfs asdfa asdfs asdadsaf afdsa Description fdsa fds aafsdfafsa fdsa fdasdfs asdfa asdfs asdadsaf afdsa Description fdsa fds aafsdfafsa fdsa fdasdfs asdfa asdfs asdadsaf afdsa Description fdsa fds aafsdfafsa fdsa fdasdfs asdfa asdfs asdadsaf afdsa f',
 		time: 'ASAP',
 		expiryDate: '4/5/6',
 		helpingUsers: [
@@ -43,7 +43,7 @@ var callsForHelpData = [
 			{username:'Alex3',helpAccepted:'false', karma:2}
 		],
 		messages: [
-			{username:'Alex',timestamp:'4/5/6:12:32',content:'This is the message'},
+			{username:'Alex',timestamp:'4/5/6:12:32',content:'This is the  fdsa fdsa asdfa asdf asdfsafdsafdsa  fdsafds afdsa fdsa fdsa fdsa fdsa  fdsa fdsa fdasfdsa fdsa fdsaf as fdsa fdsa fdsfdsa fdsafdsafds afdsafdsa fdsaf message'},
 			{username:'Alex2',timestamp:'4/5/6:12:32',content:'This is the message'},
 			{username:'Alex',timestamp:'4/5/6:12:32',content:'This is the message'}
 		]
