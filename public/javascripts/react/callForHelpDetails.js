@@ -1,10 +1,11 @@
-	class CallForHelpDetails extends React.Component {
+class CallForHelpDetails extends React.Component {
 	constructor(props) {
 		super(props)
 		this.state = {currentView:'main', currentCallForHelp:props.currentCallForHelp}; // Main : Chat : Options : finalize : delete
 	}
 	componentWillReceiveProps(e) {
 		this.setState({currentCallForHelp:e.currentCallForHelp})
+		this.setState({currentView:'main'});
 	}
 	eachUser(results, i) {
 		return (<HelpingUser key={i} username={results.username} helpAccepted={results.helpAccepted} karma={results.karma}/>)
