@@ -4,7 +4,10 @@ class NewCallForHelpUI extends React.Component {
 		this.state = {page:'create'} //create : confirm
 	}
 	componentDidMount() {
-		datePickerSetup();
+		this.datePickerSetup();
+	}
+	datePickerSetup() {
+		$('#expire').datepicker();
 	}
 	changeState() {
 		this.setState({page:'confirm'})
